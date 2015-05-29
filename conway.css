@@ -1,16 +1,27 @@
 
 
 .container {
-	margin: 5% 30% 0 30%;
+	margin: 5% 5%;
 }
 #main {
-	width: 100px;
-	height: 100px;
+	width: 500px;
+	height: 500px;
 	/*border: 1px solid black;*/
 }
 td {
-	height: 10px;
-	width: 10px;
-	background-color: black;
-	/*border: 1px solid black;*/
+	border-radius: 50%;
+/*	height: 1px;
+	width: 1px;
+*/	
+
+
+
+background-color: black;
+
+
+/* padding 0 & table collapse removed the margin issues */
+	padding: 0;
+}
+table {
+    border-collapse: collapse;
 }
