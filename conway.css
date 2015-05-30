@@ -6,8 +6,12 @@
 #main {
 	width: 500px;
 	height: 500px;
+	display: visible;
 	/*border: 1px solid black;*/
 }
+
+
+
 td {
 	border-radius: 50%;
 /*	height: 1px;
