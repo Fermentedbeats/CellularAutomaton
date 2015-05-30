@@ -34,6 +34,7 @@ createTable();
 
 function comeToLife() {
 	var tableCells = document.getElementsByTagName("td");
+	//console.log("FIRST" + tableCells);
 	// iterate through array of all tds
 	for (var k = 0; k < tableCells.length; k++) {
 		// assign life to a small percentage of randomized tds
@@ -59,6 +60,8 @@ Any dead cell with exactly three live neighbours becomes a live cell, as if by r
 
 function getNeighborCount(currentCell) {
 var tableCells = document.getElementsByTagName("td");
+	//console.log("SECOND" + tableCells);
+
 	var neighborCount = 0;
 
 	var theNeighborhood = [tableCells[currentCell], tableCells[currentCell+1], tableCells[currentCell+51],tableCells[currentCell+50], tableCells[currentCell+49], tableCells[currentCell-1], tableCells[currentCell-51], tableCells[currentCell-50], tableCells[currentCell-49]];
@@ -71,7 +74,6 @@ var tableCells = document.getElementsByTagName("td");
        if (typeof cellToBeChecked === 'undefined') {
        	neighborCount += 0;
        }
-
        else if (cellToBeChecked.style.backgroundColor === "rgb(112, 112, 112)"){
        	neighborCount += 1;
        }
@@ -79,32 +81,69 @@ var tableCells = document.getElementsByTagName("td");
    return neighborCount;
 }	
 
+/* RULES:
+Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+Any live cell with two or three live neighbours lives on to the next generation.
+Any live cell with more than three live neighbours dies, as if by overcrowding.
+Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+*/
 
-function nextGen() {
+function defineNextGen() {
     var tableCells = document.getElementsByTagName("td");
+    	//console.log("THIRD" + tableCells);
+
 	var nextGen = [];
 
 	// iterate through each td
 		for (var l = 0; l < tableCells.length; l++) {
+				// get neighbor count
 				var numOfNeighbors = getNeighborCount(l);
-				if (numOfNeighbors < 2) {
-					nextGen[l] = "black";
+				// dump nextgen specs into new array
+				if (numOfNeighbors === 3) {
+					nextGen[l] = "rgb(112, 112, 112)";
 				}
-				else if (numOfNeighbors < 4) {
-					nextGen[l] = "rgb(112, 112, 112)";	
+				else if (numOfNeighbors === 4) {
+					if (tableCells[l].style.backgroundColor === "rgb(112, 112, 112)") {
+						nextGen[l] = "rgb(112, 112, 112)";
+					}
+					else {
+						nextGen[l] = "black";
+					}
 				}			
 				else {
 					nextGen[l] = "black";
 				}
-			}
+		}
+	return nextGen
+}
 
-			console.log(nextGen);
-		
+function pushNextGen() {
+
+	// queue up array of colors for next gen
+	var newBoard = defineNextGen();
+
+
+	// get array of current cells
+	var tableCells = document.getElementsByTagName("td");
+//console.log(typeof tableCells);
+
+	// iterate through each cell
+	for (var m = 0; m < tableCells.length; m++) {
+	//console.log("FOURTH" + tableCells[m].style.backgroundColor);
+		//console.log("HI");
+		// assign the original cell a new color
+		tableCells[m].style.backgroundColor = newBoard[m];
+	}
+
+	//console.log("after: " + tableCells);
 
 }
 
-nextGen();
 
+// pushNextGen();
+// setTimeout(function(){
+// 	pushNextGen();
+// }, 2000);
 
 			// var currentCell = tableCells[l];
 
@@ -130,16 +169,17 @@ nextGen();
 
 // // 5. Start/Stop button
 
+// pushNextGen();
 
 
-// var interval;
+var interval;
 
-// function start(){
-// 	interval = setInterval(function()
-// 		{nextGen();
-// 		}, 100);
-// } 
+function start(){
+	interval = setInterval(function()
+		{pushNextGen();
+		}, 100);
+} 
 
-// function stop(){
-// 	clearInterval(interval);
-// }
+function stop(){
+	clearInterval(interval);
+}
