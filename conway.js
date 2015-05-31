@@ -116,37 +116,27 @@ function defineNextGen() {
 		}
 	return nextGen
 }
+	
+// global counter
+var generations = 0;
 
-	var generations = 0;
+
 function pushNextGen() {
-
 	// queue up array of colors for next gen
 	var newBoard = defineNextGen();
-
-
 	// get array of current cells
 	var tableCells = document.getElementsByTagName("td");
-//console.log(typeof tableCells);
-
 	// iterate through each cell
 	for (var m = 0; m < tableCells.length; m++) {
-	//console.log("FOURTH" + tableCells[m].style.backgroundColor);
-		//console.log("HI");
 		// assign the original cell a new color
 		tableCells[m].style.backgroundColor = newBoard[m];
-
 	}
-
 	document.getElementById("countDracula").innerHTML = generations += 1;
-
-	//console.log("after: " + tableCells);
-
 }
 
 
 // // 5. Start/Stop button
 
-// pushNextGen();
 
 
 var interval;
@@ -156,7 +146,17 @@ function start(){
 		{pushNextGen();
 		}, 100);
 } 
-
 function stop(){
 	clearInterval(interval);
+}
+function reset() {
+	var main = document.getElementById("main");
+	document.getElementById("tableHolder").removeChild(main);
+	var newTable = document.createElement('table');
+	newTable.id = "main";
+	document.getElementById("tableHolder").appendChild(newTable);
+	createTable();
+	comeToLife();
+
+
 }
