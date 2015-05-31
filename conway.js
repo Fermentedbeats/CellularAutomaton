@@ -41,7 +41,7 @@ function comeToLife() {
 		var seedOfLife = Math.random();
 		if (seedOfLife >= 0.6) {
 			//console.log(tableCells[k])
-			tableCells[k].style.backgroundColor = "#707070";
+			tableCells[k].style.backgroundColor = "#F3F315";
 		}
 	}
 }
@@ -74,7 +74,7 @@ var tableCells = document.getElementsByTagName("td");
        if (typeof cellToBeChecked === 'undefined') {
        	neighborCount += 0;
        }
-       else if (cellToBeChecked.style.backgroundColor === "rgb(112, 112, 112)"){
+       else if (cellToBeChecked.style.backgroundColor === "rgb(243, 243, 21)"){
        	neighborCount += 1;
        }
    }
@@ -100,11 +100,11 @@ function defineNextGen() {
 				var numOfNeighbors = getNeighborCount(l);
 				// dump nextgen specs into new array
 				if (numOfNeighbors === 3) {
-					nextGen[l] = "rgb(112, 112, 112)";
+					nextGen[l] = "rgb(243, 243, 21)";
 				}
 				else if (numOfNeighbors === 4) {
-					if (tableCells[l].style.backgroundColor === "rgb(112, 112, 112)") {
-						nextGen[l] = "rgb(112, 112, 112)";
+					if (tableCells[l].style.backgroundColor === "rgb(243, 243, 21)") {
+						nextGen[l] = "rgb(243, 243, 21)";
 					}
 					else {
 						nextGen[l] = "black";
@@ -117,6 +117,7 @@ function defineNextGen() {
 	return nextGen
 }
 
+	var generations = 0;
 function pushNextGen() {
 
 	// queue up array of colors for next gen
@@ -133,38 +134,14 @@ function pushNextGen() {
 		//console.log("HI");
 		// assign the original cell a new color
 		tableCells[m].style.backgroundColor = newBoard[m];
+
 	}
+
+	document.getElementById("countDracula").innerHTML = generations += 1;
 
 	//console.log("after: " + tableCells);
 
 }
-
-
-// pushNextGen();
-// setTimeout(function(){
-// 	pushNextGen();
-// }, 2000);
-
-			// var currentCell = tableCells[l];
-
-			// // define neighborhood (surrounding 8 cells)
-
-			// // increment count as life is found in hood
-
-			//  }
-			//  	var neighbor = theNeighborhood[m];
-			// 	}
-			// 		neighborCount += 1;
-			// 		console.log("neighbors equals " + neighborCount);
-			// }
-			// if hood is less than 3 all organism die
-			// if (neighborCount < 3) {
-			// 	for  (var m = 0; m < theNeighborhood.length; m++) {
-			// 	home.style.backgroundColor == "black";
-			
-
-//if (neighborCount <= 3		
-
 
 
 // // 5. Start/Stop button

@@ -1,12 +1,26 @@
 
+button {
+	width: 20%;
+	border: 1px solid #F3F315;
+	border-radius: 15%;
+	background-color: black;
+	color: #F3F315;
+/*	font-family: sans-serif;
+	font-size: 1em;*/
+}
 
+#buttons {
+	margin-top: 5%;
+	margin-left: 25%;
+}
 .container {
 	margin: 5% 5%;
+	display: inline-block;
 }
 #main {
-	width: 500px;
-	height: 500px;
-	display: visible;
+	width: 450px;
+	height: 450px;
+	/*display: visible;*/
 	/*border: 1px solid black;*/
 }
 body {
@@ -16,14 +30,7 @@ body {
 
 td {
 	border-radius: 50%;
-/*	height: 1px;
-	width: 1px;
-*/	
-
-
-
-background-color: black;
-
+	background-color: black;
 
 /* padding 0 & table collapse removed the margin issues */
 	padding: 0;
