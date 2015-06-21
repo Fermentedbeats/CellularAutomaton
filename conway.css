@@ -38,3 +38,63 @@ td {
 table {
     border-collapse: collapse;
 }
+
+/**********  SIDEBAR ****************/
+.sidebar {
+	display: inline-block;
+	float: right;
+	width: 20%;
+	border: solid 1px yellow;
+	margin: 10% 10% 0 0;
+	border-radius: 15%;
+	font-family: coldcoffee;
+	color: yellow;
+}
+.sidebar p {
+	margin: 1em;
+	font-size: .5em;
+	text-align: center;
+}
+.sidebar h1 {
+	text-align: center;
+	margin: 1em;
+	font-size: 1em;
+} 
+.sidebar h2 {
+	text-align: center;
+	font-size: .5em;
+} 
+
+
+/*******  NAV *********/
+#navDiv {
+	width: 100%;
+	position: fixed;
+	z-index:9999;
+	background-color: black;
+	opacity: .8;
+	margin-top: -1em;
+	display: inline-block;
+	float: left;
+}
+#navDiv a {
+	text-decoration: none;
+	color: yellow;
+	font-family: coldcoffee;
+	font-size: .5em;
+
+}
+#navUl {
+	width: 100%;
+	list-style: none;
+}
+#navUl li {
+	float: right; 
+	margin-left: 1em;
+}
+#lastNav {
+	margin-right: 4em;
+}
+a {
+	text-decoration: none;
+}

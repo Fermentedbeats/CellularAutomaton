@@ -7,20 +7,38 @@
 </head>
 
 <body>
+
+	<div id="navDiv">
+		<ul id="navUl">
+			<li id="lastNav"><a href='../../blog.html'>blog</a></li>
+			<li><a href='../../blog.html#resume'>resume</a></li>
+			<li><a href='../../blog.html#portfolio'>portfolio</a></li>
+			<li><a href='../../blog.html#about'>contact</a></li>
+			<li><a href='../../blog.html#header'>home</a></li>
+		</ul>
+	</div><!--nav-->
+
 	<div id="container">
 		<div id="tableHolder">
-		<table id="main">
-		</table> <!--main-->
+			<table id="main">
+			</table> <!--main-->
 		</div>	<!--tableHolder-->
-	<div id="buttons">
-		<button onclick="start()">START</button>	
-		<button onclick="stop()">STOP</button>	
-		<button onclick="reset()">RESET</button>	
-		<button id="countDracula">0</button>	
-	</div> <!-- buttons-->
+		<div id="buttons">
+			<button onclick="start()">START</button>	
+			<button onclick="stop()">STOP</button>	
+			<button onclick="reset()">RESET</button>	
+			<button id="countDracula">0</button>	
+		</div> <!-- buttons-->
 
 	</div> <!--container-->
-	<script src="conway.js"></script>
- 
-</body>
-</html>
+
+	<div class="sidebar">
+		<h1>Conway's Game of Life</h1>
+		<p>Pure vanilla JS web app of Conway’s cellular automaton. <a href="http://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Wiki</a>.<br>
+			<a href="https://github.com/Fermentedbeats/CellularAutomaton"><h2>Github Link.</h2></a></p>
+		</div>
+
+		<script src="conway.js"></script>
+
+	</body>
+	</html>
